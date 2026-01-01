@@ -39,6 +39,8 @@
                     class="flex flex-col justify-start items-center px-4 space-y-1.5 w-full h-full text-slate-600 dark:text-zinc-400">
                     <x-app.sidebar-link href="/dashboard" icon="phosphor-house"
                         :active="Request::is('dashboard')">Dashboard</x-app.sidebar-link>
+                    {{-- <x-app.sidebar-link href="/dashboard/cgbod" icon="phosphor-align-center-vertical"
+                        :active="Request::is('cgbod.index')">CGBOD</x-app.sidebar-link> --}}
 
                     @php
                         $user = auth()->user();
@@ -52,6 +54,10 @@
                         }
                     @endphp
 
+                    @if($isAdmin)
+                    <x-app.sidebar-link href="/dashboard/cgbod/projects/create" icon="phosphor-align-center-vertical"
+                        :active="Request::is('cgbod.projects.create')">Create Project</x-app.sidebar-link>
+                    @endif
                     <x-app.sidebar-dropdown text="Projects" icon="phosphor-stack" id="projects_dropdown"
                         :active="$isProjectPage" :open="$isProjectPage ? '1' : '0'">
 
