@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CgbodController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +17,9 @@ use Wave\Facades\Wave;
 
 // Wave routes
 Wave::routes();
+
+Route::middleware(['auth'])->prefix('dashboard/cgbod')->group(function () {
+    Route::get('/', [CgbodController::class, 'index'])->name('cgbod.index');
+    Route::get('/projects/create', [CgbodController::class, 'create'])->name('cgbod.projects.create');
+    Route::post('/projects', [CgbodController::class, 'store'])->name('cgbod.projects.store');
+});

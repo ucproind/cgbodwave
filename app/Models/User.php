@@ -93,4 +93,9 @@ class User extends WaveUser
             }
         });
     }
+
+    public function cgbodProjects()
+    {
+        return $this->hasMany(CgbodProject::class);
+    }
 }
