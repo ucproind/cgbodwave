@@ -7,7 +7,6 @@ use App\Models\CgbodProject;
 use Filament\Pages\Page;
 use Filament\Actions\EditAction;
 use Filament\Actions\Action;
-//use Filament\Resources\Pages\ViewRecord;
 
 class ShowProject extends Page
 {
