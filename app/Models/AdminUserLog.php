@@ -4,13 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CgbodProject extends Model
+class AdminUserLog extends Model
 {
-    protected $fillable = ['user_id', 'name', 'description', 'tenant_id', 'status'];
+    protected $fillable = [
+        'tenant_id',
+        'user_id',
+        'action',
+        'ip'
+    ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function tenant()
