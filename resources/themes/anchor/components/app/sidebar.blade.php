@@ -54,10 +54,10 @@
                         }
                     @endphp
 
-                    @if($isAdmin)
-                    <x-app.sidebar-link href="/dashboard/cgbod/projects/create" icon="phosphor-align-center-vertical"
-                        :active="Request::is('cgbod.projects.create')">Create Project</x-app.sidebar-link>
-                    @endif
+                    {{-- @if($isAdmin)
+                    <x-app.sidebar-link href="/admin/projects/create" icon="phosphor-align-center-vertical"
+                        :active="Request::is('admin/projects/create')">Create Project</x-app.sidebar-link>
+                    @endif --}}
                     <x-app.sidebar-dropdown text="Projects" icon="phosphor-stack" id="projects_dropdown"
                         :active="$isProjectPage" :open="$isProjectPage ? '1' : '0'">
 
