@@ -22,7 +22,6 @@ class User extends WaveUser
      */
     protected $fillable = [
         'name',
-        'tenant_id',
         'email',
         'username',
         'avatar',
@@ -95,13 +94,8 @@ class User extends WaveUser
         });
     }
 
-    public function cgbodProjects()
+    public function projects()
     {
-        return $this->hasMany(CgbodProject::class);
-    }
-
-    public function tenant()
-    {
-        return $this->belongsTo(Tenant::class, 'tenant_id', 'id');
+        return $this->hasMany(Project::class);
     }
 }

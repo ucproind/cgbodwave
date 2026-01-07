@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ErrorLog extends Model
+class Plan extends Model
 {
     protected $fillable = [
-        'level',
-        'message',
-        'trace'
+        'name',
+        'features',
+        'price'
     ];
 }

@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin_user_logs', function (Blueprint $table) {
+        Schema::create('error_logs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('tenant_id')->default(0);
-            $table->unsignedBigInteger('user_id')->default(0);
-            $table->string('action', 100);
-            $table->string('ip', 45)->nullable();
+            $table->string('level');
+            $table->text('message');
+            $table->string('trace');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admin_user_logs');
+        Schema::dropIfExists('error_logs');
     }
 };

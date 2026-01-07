@@ -4,21 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserActivity extends Model
+class TenantModule extends Model
 {
     protected $fillable = [
-       'tenant_id',
-       'user_id',
-       'activity'
+        'tenant_id',
+        'module_key',
+        'is_enabled'
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
 
     public function tenant()
     {
         return $this->belongsTo(Tenant::class, 'tenant_id', 'id');
     }
+
 }

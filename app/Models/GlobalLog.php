@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TenantSetting extends Model
+class GlobalLog extends Model
 {
     protected $fillable = [
-        'tenant_id', 'key', 'value'
+        'tenant_id',
+        'type',
+        'message'
     ];
 
     public function tenant()
