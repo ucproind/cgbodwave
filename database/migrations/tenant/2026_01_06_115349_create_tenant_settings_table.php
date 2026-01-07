@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('tenant_settings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('tenant_id')->default(0);
-            $table->string('key')->index();
+            $table->string('key');
             $table->json('value')->nullable();
+            $table->unique('key');
             $table->timestamps();
         });
     }

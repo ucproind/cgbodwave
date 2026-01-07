@@ -16,17 +16,7 @@ return new class extends Migration
             $table->string('name'); // Company / Tenant name
             $table->string('slug')->unique(); // for subdomain or url
             $table->string('domain')->nullable(); // artsign.example.com
-            $table->string('app_name')->nullable();
-            $table->string('logo_path')->nullable();
-            $table->integer('company_size')->nullable()->comment('Number of employees');
-
-            $table->string('email')->nullable();
             $table->boolean('is_active')->default(true);
-
-            // Indexes
-            $table->index('slug');
-            $table->index('domain');
-            $table->index('is_active');
             $table->timestamps();
         });
     }
