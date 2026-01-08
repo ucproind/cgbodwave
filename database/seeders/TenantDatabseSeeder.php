@@ -20,5 +20,6 @@ class TenantDatabseSeeder extends Seeder
         //belew codes added
         $this->call(ActivityLogSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(PasswordResetsTableSeeder::class);
     }
 }
