@@ -7,23 +7,21 @@ use Illuminate\Support\Facades\DB;
 
 class ThemesTableSeeder extends Seeder
 {
-    /**
-     * Auto generated seed file
-     */
     public function run(): void
     {
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::connection('central')->table('themes')->truncate();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        DB::table('themes')->delete();
-
-        DB::table('themes')->insert([
-            0 => [
-                'id' => 1,
+        DB::connection('central')->table('themes')->insert([
+            [
                 'name' => 'Anchor Theme',
                 'folder' => 'anchor',
-                'active' => 1,
-                'version' => 1.0,
+                'active' => true,
+                'version' => '1.0',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
-
     }
 }

@@ -7,25 +7,21 @@ use Illuminate\Support\Facades\DB;
 
 class VoyagerThemesTableSeeder extends Seeder
 {
-    /**
-     * Auto generated seed file
-     */
     public function run(): void
     {
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::connection('central')->table('themes')->truncate();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        DB::table('themes')->delete();
-
-        DB::table('themes')->insert([
-            0 => [
-                'id' => 1,
+        DB::connection('central')->table('themes')->insert([
+            [
                 'name' => 'Tailwind Theme',
                 'folder' => 'tailwind',
-                'active' => 1,
+                'active' => true,
                 'version' => '1.0',
-                'created_at' => '2020-08-23 08:06:45',
-                'updated_at' => '2020-08-23 08:06:45',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
-
     }
 }

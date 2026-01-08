@@ -7,58 +7,61 @@ use Illuminate\Support\Facades\DB;
 
 class PlansTableSeeder extends Seeder
 {
-    /**
-     * Auto generated seed file
-     */
     public function run(): void
     {
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::connection('central')->table('plans')->truncate();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        DB::table('plans')->delete();
-
-        DB::table('plans')->insert([
-            0 => [
-                'id' => 1,
+        DB::connection('central')->table('plans')->insert([
+            [
                 'name' => 'Basic',
-                'description' => 'Signup for the Basic User Plan to access all the basic features.',
-                'features' => 'Basic Feature Example 1, Basic Feature Example 2, Basic Feature Example 3, Basic Feature Example 4',
-                'role_id' => 3,
-                'default' => 0,
+                'description' => 'Access all basic features.',
+                'features' => json_encode([
+                    'basic_feature_1',
+                    'basic_feature_2',
+                    'basic_feature_3',
+                ]),
+                'default' => false,
+                'monthly_price' => 5,
+                'yearly_price' => 50,
                 'monthly_price_id' => 'dummy_basic_monthly_id',
                 'yearly_price_id' => 'dummy_basic_yearly_id',
-                'monthly_price' => '5',
-                'yearly_price' => '50',
-                'created_at' => '2018-07-03 05:03:56',
-                'updated_at' => '2018-07-03 17:17:24',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
-            1 => [
-                'id' => 2,
+            [
                 'name' => 'Premium',
-                'description' => 'Signup for our premium plan to access all our Premium Features.',
-                'features' => 'Premium Feature Example 1, Premium Feature Example 2, Premium Feature Example 3, Premium Feature Example 4',
-                'role_id' => 4,
-                'default' => 1,
+                'description' => 'Access premium features.',
+                'features' => json_encode([
+                    'premium_feature_1',
+                    'premium_feature_2',
+                    'premium_feature_3',
+                ]),
+                'default' => true,
+                'monthly_price' => 8,
+                'yearly_price' => 80,
                 'monthly_price_id' => 'dummy_premium_monthly_id',
                 'yearly_price_id' => 'dummy_premium_yearly_id',
-                'monthly_price' => '8',
-                'yearly_price' => '80',
-                'created_at' => '2018-07-03 16:29:46',
-                'updated_at' => '2018-07-03 17:17:08',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
-            2 => [
-                'id' => 3,
+            [
                 'name' => 'Pro',
-                'description' => 'Gain access to our pro features with the pro plan.',
-                'features' => 'Pro Feature Example 1, Pro Feature Example 2, Pro Feature Example 3, Pro Feature Example 4',
-                'role_id' => 5,
-                'default' => 0,
+                'description' => 'Access pro features.',
+                'features' => json_encode([
+                    'pro_feature_1',
+                    'pro_feature_2',
+                    'pro_feature_3',
+                ]),
+                'default' => false,
+                'monthly_price' => 12,
+                'yearly_price' => 120,
                 'monthly_price_id' => 'dummy_pro_monthly_id',
                 'yearly_price_id' => 'dummy_pro_yearly_id',
-                'monthly_price' => '12',
-                'yearly_price' => '120',
-                'created_at' => '2018-07-03 16:30:43',
-                'updated_at' => '2018-08-22 22:26:19',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
-
     }
 }
