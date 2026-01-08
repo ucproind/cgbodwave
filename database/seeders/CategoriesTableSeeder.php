@@ -13,9 +13,11 @@ class CategoriesTableSeeder extends Seeder
     public function run(): void
     {
 
-        DB::table('categories')->delete();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::connection('central')->table('categories')->truncate();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        DB::table('categories')->insert([
+        DB::connection('central')->table('categories')->insert([
             0 => [
                 'id' => 1,
                 'parent_id' => null,

@@ -13,11 +13,12 @@ class SettingsTableSeeder extends Seeder
     public function run(): void
     {
 
-        DB::table('settings')->delete();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::connection('central')->table('settings')->truncate();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        DB::table('settings')->insert([
+        DB::connection('central')->table('settings')->insert([
             0 => [
-                'id' => 1,
                 'key' => 'site.title',
                 'display_name' => 'Site Title',
                 'value' => 'Wave',
@@ -27,7 +28,6 @@ class SettingsTableSeeder extends Seeder
                 'group' => 'Site',
             ],
             1 => [
-                'id' => 2,
                 'key' => 'site.description',
                 'display_name' => 'Site Description',
                 'value' => 'The Software as a Service Starter Kit built with Laravel',
@@ -37,7 +37,6 @@ class SettingsTableSeeder extends Seeder
                 'group' => 'Site',
             ],
             2 => [
-                'id' => 4,
                 'key' => 'site.google_analytics_tracking_id',
                 'display_name' => 'Google Analytics Tracking ID',
                 'value' => null,

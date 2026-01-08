@@ -15,5 +15,11 @@ class CentralDatabaseSeeder extends Seeder
         $this->call(PlansTableSeeder::class);
         $this->call(SuperadminSeeder::class);
         $this->call(ThemesTableSeeder::class);
+        $this->call(ChangelogsTableSeeder::class);
+        $this->call(PagesTableSeeder::class);
+        $this->call(SettingsTableSeeder::class);
+        $this->call(PostsTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(NotificationsTableSeeder::class);
     }
 }

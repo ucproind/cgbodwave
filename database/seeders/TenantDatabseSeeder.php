@@ -16,5 +16,9 @@ class TenantDatabseSeeder extends Seeder
         $this->call(PermissionsTableSeeder::class);
         $this->call(PermissionRoleTableSeeder::class);
         $this->call(ModelHasRolesTableSeeder::class);
+
+        //belew codes added
+        $this->call(ActivityLogSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }

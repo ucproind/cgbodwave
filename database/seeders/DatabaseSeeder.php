@@ -13,22 +13,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(RolesTableSeeder::class);
-        $this->call(UsersTableSeeder::class);
-        $this->call(ChangelogsTableSeeder::class);
+        $this->call(RolesTableSeeder::class); //✅
+        $this->call(UsersTableSeeder::class); //✅
+        $this->call(ChangelogsTableSeeder::class); //✅
         $this->call(ApiKeysTableSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
-        $this->call(NotificationsTableSeeder::class);
-        $this->call(PagesTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class); //✅
+        $this->call(NotificationsTableSeeder::class); //✅
+        $this->call(PagesTableSeeder::class); //✅
         $this->call(PasswordResetsTableSeeder::class);
-        $this->call(PermissionsTableSeeder::class);
-        $this->call(PermissionRoleTableSeeder::class);
-        $this->call(ModelHasRolesTableSeeder::class);
-        $this->call(PlansTableSeeder::class);
-        $this->call(PostsTableSeeder::class);
-        $this->call(SettingsTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class); //✅
+        $this->call(PermissionRoleTableSeeder::class); //✅
+        $this->call(ModelHasRolesTableSeeder::class); //✅
+        $this->call(PlansTableSeeder::class); //✅
+        $this->call(PostsTableSeeder::class); //✅
+        $this->call(SettingsTableSeeder::class); //✅
         $this->call(ProfileKeyValuesTableSeeder::class);
-        $this->call(ThemesTableSeeder::class);
+        $this->call(ThemesTableSeeder::class); //✅
         fixPostgresSequence();
     }
 }

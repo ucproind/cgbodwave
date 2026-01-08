@@ -13,9 +13,12 @@ class PostsTableSeeder extends Seeder
     public function run(): void
     {
 
-        DB::table('posts')->delete();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::connection('central')->table('posts')->truncate();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        DB::table('posts')->insert([
+
+        DB::connection('central')->table('posts')->insert([
             0 => [
                 'id' => 5,
                 'author_id' => 1,

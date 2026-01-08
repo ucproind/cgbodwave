@@ -4,13 +4,14 @@ namespace Database\Seeders;
 
 use App\Models\ActivityLog;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class ActivityLogSeeder extends Seeder
 {
     public function run(): void
     {
-        $user = User::first();
+        $user = DB::connection('tenant')->table('users')->first();
 
         if (! $user) {
             $this->command->error('No users found. Please create a user first.');
@@ -43,7 +44,7 @@ class ActivityLogSeeder extends Seeder
             $action = array_rand($actions);
             $daysAgo = rand(0, 89);
 
-            ActivityLog::create([
+            DB::connection('tenant')->table('activity_logs')->create([
                 'user_id' => $user->id,
                 'action' => $action,
                 'description' => $actions[$action],

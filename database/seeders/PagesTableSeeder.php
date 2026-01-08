@@ -13,11 +13,12 @@ class PagesTableSeeder extends Seeder
     public function run(): void
     {
 
-        DB::table('pages')->delete();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::connection('central')->table('pages')->truncate();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        DB::table('pages')->insert([
+        DB::connection('central')->table('pages')->insert([
             0 => [
-                'id' => 1,
                 'author_id' => 1,
                 'title' => 'Example Page',
                 'excerpt' => 'This is an example page. Create a page in the Wave admin and have it show up on the site.',
@@ -31,7 +32,6 @@ class PagesTableSeeder extends Seeder
                 'updated_at' => '2017-11-21 16:23:23',
             ],
             1 => [
-                'id' => 2,
                 'author_id' => 1,
                 'title' => 'About',
                 'excerpt' => 'Learn more about Wave. This is an example about page.',

@@ -13,7 +13,9 @@ class NotificationsTableSeeder extends Seeder
     public function run(): void
     {
 
-        DB::table('notifications')->delete();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::connection('central')->table('notifications')->truncate();
+        DB::connection('central')->statement('SET FOREIGN_KEY_CHECKS=1;');
 
     }
 }
