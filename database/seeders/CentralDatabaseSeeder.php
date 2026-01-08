@@ -21,5 +21,6 @@ class CentralDatabaseSeeder extends Seeder
         $this->call(PostsTableSeeder::class);
         $this->call(CategoriesTableSeeder::class);
         $this->call(NotificationsTableSeeder::class);
+        $this->call(ApiKeysTableSeeder::class);
     }
 }
